@@ -7,6 +7,9 @@ WORKDIR /app
 EXPOSE 8080
 EXPOSE 8081
 
+# Create a non-root user
+RUN useradd -m app
+USER app
 
 # This stage is used to build the service project
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
