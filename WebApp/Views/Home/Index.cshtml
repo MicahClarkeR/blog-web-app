@@ -1,0 +1,25 @@
+﻿@using WebApp.Helpers;
+@model HomeViewModel
+@{
+    ViewData["Title"] = "Micah's Blog";
+    var articleListModel = new WebApp.Models.Partial.PartialArticleListModel()
+    {
+        Articles = Model.Articles.data,
+        BackLink = "/"
+    };
+}
+
+@section PageHead
+{
+    <link rel="stylesheet" href="~/css/index.css" asp-append-version="true" />
+}
+
+<main>
+    <section class="articles">
+        <header>Micah's Blog</header>
+        <!--<hr />-->
+        @{
+            await Html.RenderPartialAsync("_ArticleList", articleListModel);
+        }
+    </section>
+</main>

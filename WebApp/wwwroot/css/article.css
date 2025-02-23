@@ -1,0 +1,80 @@
+﻿article
+{
+    padding: 2em;
+}
+
+article > header > h1
+{
+    color: var(--bright);
+    font-size: var(--header1);
+    display: block;
+}
+
+article > header > img
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-height: 640px;
+    object-fit: contain;
+}
+
+article > hr
+{
+    background-color: var(--deep) !important;
+    border: solid 0px dimgrey !important;
+    height: 1px !important;
+    outline: 0;
+    margin: 1em 0 1em 0;
+}
+
+article > content
+{
+    display: block;
+    margin-bottom: 4em;
+}
+
+article > content > p
+{
+    text-align: justify;
+    width: 100%;
+}
+
+article > content > p > img, article > content > img
+{ 
+    display: block;
+    margin: 2em 0 2em 0;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+}
+
+article > .back
+{
+    font-style: italic;
+    opacity: 0.6;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+    transition: all 0.25s ease;
+}
+
+
+article > .back:hover
+{
+    opacity: 1.0;
+}
+
+article > #categories > span > small > a 
+{
+    font-style: italic;
+    text-decoration: none;
+    color: var(--deep);
+    animation-duration: 0.25s;
+    animation-timing-function: ease-in-out;
+    transition: all 0.25s ease;
+}
+
+article > #categories > span > small > a:hover
+{
+    color: var(--bright);
+}

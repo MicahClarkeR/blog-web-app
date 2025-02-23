@@ -1,0 +1,14 @@
+﻿@using WebApp.Helpers;
+@model ArticleListModel
+@{
+    ViewData["Title"] = $"Articles – {Model.Page} – Micah's Blog";
+    var articleListModel = new WebApp.Models.Partial.PartialArticleListModel()
+    {
+        Articles = Model.Articles,
+        BackLink = "/article?page=" + Model.Page + "&count=" + Model.Count
+    };
+}
+<div style="margin-top: 6em"></div>
+@{
+    await Html.RenderPartialAsync("_ArticleList", articleListModel);
+}

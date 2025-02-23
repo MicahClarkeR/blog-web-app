@@ -1,0 +1,22 @@
+﻿@using WebApp.Helpers;
+@model WebApp.Models.Partial.PartialArticleListModel;
+
+<div class="article-list">
+    @foreach (var article in Model.Articles)
+    {
+        <article>
+            @if (article.header != null)
+            {
+                <img class="head-image" src="@Assets.GetImage((Guid) article.header)" />
+            }
+            <header class="cardo"><a asp-controller="article" asp-action="read" asp-route-id="@article.id" asp-route-backLink="@Model.BackLink">@article.title</a><hr></header>
+            <section class="metadata">
+                <!--<span id="author">By: @article.user_created</span>-->
+            </section>
+            <content class="justify">
+                @Html.Raw(article.GetSummary())
+            </content>
+            <a class="read cardo" asp-controller="article" asp-action="read" asp-route-backLink="@Model.BackLink" asp-route-id="@article.id"><em>Read...</em></a>
+        </article>
+    }
+</div>

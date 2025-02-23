@@ -1,0 +1,40 @@
+﻿@using WebApp.Helpers
+@model ArticleReadModel
+
+@{
+    ViewData["Title"] = $"{Model.Article.title} – Micah's Blog";
+}
+
+@section PageHead
+{
+    <link rel="stylesheet" href="~/css/article.css" asp-append-version="true" />
+}
+
+<article>
+    @if (Model.BackLink != null)
+    {
+            <a class="back cardo" href="@Model.BackLink">Back</a>
+    }
+
+    <header>
+        @if (!string.IsNullOrEmpty(Model.Article.header?.ToString()))
+        {
+            <img src="@Assets.GetImage(Model.Article.header))" />
+        }
+
+        <h1 class="cardo">@Model.Article.title</h1>
+    </header>
+    <hr />
+    <div id="categories" class="animation-quick">
+        @if (Model.Article.category?.Length > 0)
+        {
+            <span><small><a class="cardo" href="#">@string.Join(", ", Model.Article.category)</a></small></span>
+        }
+    </div>
+    <content>@Html.Raw(Model.Article.content)</content>
+
+    @if (Model.BackLink != null)
+    {
+            <a class="back cardo" href="@Model.BackLink">Back</a>
+    }
+</article>

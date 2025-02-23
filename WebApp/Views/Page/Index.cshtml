@@ -1,0 +1,24 @@
+﻿@model WebApp.Models.PageViewModel
+@using WebApp.Helpers
+
+@{
+    ViewData["Title"] = $"{Model.Page.header} – Micah's Blog";
+}
+
+@section PageHead
+{
+    <link rel="stylesheet" href="~/css/article.css" asp-append-version="true" />
+}
+
+<article>
+    <header>
+        @if (!string.IsNullOrEmpty(Model.Page.header_image.ToString()))
+        {
+            <img src="@Assets.GetImage(Model.Page.header_image))" />
+        }
+
+        <h1 class="cardo">@Model.Page.header</h1>
+    </header>
+    <hr />
+    <content>@Html.Raw(Model.Page.content)</content>
+</article>
