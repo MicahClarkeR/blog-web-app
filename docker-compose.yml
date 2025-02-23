@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  # --- 1) Directus Service ---
+  directus:
+    image: directus/directus:latest
+    container_name: directus
+    ports:
+      - "8055:8055"
+    volumes:
+      - ./database:/directus/database
+      - ./uploads:/directus/uploads
+      - ./extensions:/directus/extensions
+    environment:
+      SECRET: "572b8fdd-6763-408d-b8c9-acd9f59f1443"
+      ADMIN_EMAIL: "micahclarke.r@gmail.com"
+      ADMIN_PASSWORD: "ScoobyShack2048"
+      DB_CLIENT: "sqlite3"
+      DB_FILENAME: "/directus/database/data.db"
+      WEBSOCKETS_ENABLED: "true"
+
+  # --- 2) WebApp Service ---
+  webapp:
+    container_name: WebApp
+    build:
+      context: .
+      dockerfile: WebApp/Dockerfile  # Path to your .NET project's Dockerfile
+    ports:
+      - "8080:80"     # Expose your web app on localhost:8080
+    depends_on:
+      - directus      # Ensure Directus starts first
+    environment:
+      # If you need environment variables for your .NET app
+      ASPNETCORE_ENVIRONMENT: "Development"
+      # You can pass your base Directus URL here, or read from appsettings.json
+      DIRECTUS_HOST: "http://directus:8055" 
+
+volumes:
+  directus_data:
