@@ -1,2 +1,9 @@
 /WebApp/bin
 /WebApp/obj
+/obj
+/extensions
+/database
+/bin
+/uploads
+/.vs
+/WebApp/WebApp.csproj.user
