@@ -5,13 +5,27 @@
     ViewData["Title"] = $"{Model.Page.header} – Micah's Blog";
 }
 
+@section Scripts
+{
+    @if (!string.IsNullOrEmpty(Model.Page.CustomJsUrl))
+    {
+        <script type="text/javascript" src="@Model.Page.CustomJsUrl" asp-append-version="true"></script>
+    }
+}
+
 @section PageHead
 {
     <link rel="stylesheet" href="~/css/article.css" asp-append-version="true" />
+
+    @if (!string.IsNullOrEmpty(Model.Page.CustomCssUrl))
+    {
+        <link rel="stylesheet" href="@Model.Page.CustomCssUrl" asp-append-version="true" />
+    }
 }
 
 <article>
     <header>
+        <div id="article-inner-header"></div>
         @if (!string.IsNullOrEmpty(Model.Page.header_image.ToString()))
         {
             <img src="@Assets.GetImage(Model.Page.header_image))" />

@@ -8,33 +8,82 @@
 @section PageHead
 {
     <link rel="stylesheet" href="~/css/article.css" asp-append-version="true" />
+
+    @if (Model.Article.CustomCssUrls != null)
+    {
+        @foreach (var url in Model.Article.CustomCssUrls)
+        {
+            <link rel="stylesheet" href="@url" asp-append-version="true" />
+        }
+    }
+}
+
+@section Scripts
+{
+    <script type="text/javascript" src="~/js/article.js" asp-append-version="true"></script>
+
+    @if (Model.Article.CustomJSUrls != null)
+    {
+        @foreach (var url in Model.Article.CustomJSUrls)
+        {
+            <script type="text/javascript" src="@url" asp-append-version="true"></script>
+        }
+    }
 }
 
 <article>
     @if (Model.BackLink != null)
     {
-            <a class="back cardo" href="@Model.BackLink">Back</a>
+        <a class="back cardo" href="@Model.BackLink">Back</a>
+    }
+    else
+    {
+        <a class="back cardo" asp-controller="article" asp-action="Index">Back</a>
     }
 
     <header>
         @if (!string.IsNullOrEmpty(Model.Article.header?.ToString()))
         {
-            <img src="@Assets.GetImage(Model.Article.header))" />
+            <img src="@Assets.GetImage(Model.Article.header, 960)" />
         }
 
         <h1 class="cardo">@Model.Article.title</h1>
     </header>
     <hr />
-    <div id="categories" class="animation-quick">
+    <div id="metadata" class="animation-quick">
+        <span><small>By @Model.Article.GetAuthor().first_name</small></span>
+
         @if (Model.Article.category?.Length > 0)
         {
-            <span><small><a class="cardo" href="#">@string.Join(", ", Model.Article.category)</a></small></span>
+            @Html.Raw("&nbsp–&nbsp");
+
+            for(int i = 0; i < Model.Article.category.Length; i++)
+            {
+                var category = Model.Article.category[i];
+                <span>
+                    <small>
+                    <a class="cardo" href="#">@category</a>
+                        @if (i < Model.Article.category.Length - 1)
+                        {
+                            @Html.Raw("&nbsp");
+                        }
+                    </small>
+                </span>
+
+                
+            }
+        }
+
+        @if(Model.Article.header_credit != null)
+        {
+            @Html.Raw("&nbsp<span>–</span>&nbsp");
+            <span id="header-credit"><small>Header Credit: <a href="@Model.Article.header_credit_link" target="_blank">@Model.Article.header_credit</a></small></span>
         }
     </div>
     <content>@Html.Raw(Model.Article.content)</content>
 
     @if (Model.BackLink != null)
     {
-            <a class="back cardo" href="@Model.BackLink">Back</a>
+        <a class="back cardo" href="@Model.BackLink">Back</a>
     }
 </article>

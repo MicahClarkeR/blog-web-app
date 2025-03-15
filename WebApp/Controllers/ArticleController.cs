@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using WebApp.Models;
 using WebApp.Services;
+using WebApp.Services.Directus;
 
 namespace WebApp.Controllers
 {
@@ -30,9 +31,17 @@ namespace WebApp.Controllers
         }
 
         [Route(ROUTE + "/{id}")]
-        public async Task<IActionResult> Read(string id, string? backLink = null)
+        [Route(ROUTE + "/{id}/{slug}")]
+        public async Task<IActionResult> Read(string id, string? slug = null, string? backLink = null)
         {
-            var article = await _directusService.GetArticleAsync(id);
+            Article article;
+            
+            if(Guid.TryParse(id, out Guid guid))
+                article = await _directusService.GetArticleAsync(id);
+            else
+                article = await _directusService.GetArticleBySlugAsync(id);
+
+            await article.LoadFileDataAsync(_directusService);
             return View("Read", new ArticleReadModel
             {
                 Article = article,

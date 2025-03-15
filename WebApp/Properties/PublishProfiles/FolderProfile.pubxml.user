@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\Users\micah\source\repos\blog-web-app\WebApp\bin\Release\net8.0\publish\</_PublishTargetUrl>
+    <History>True|2025-03-01T17:50:32.8679580Z||;True|2025-02-27T18:29:05.5497981+00:00||;True|2025-02-24T00:26:55.9133725+00:00||;True|2025-02-23T18:12:18.8397762+00:00||;True|2025-02-23T17:49:31.8393396+00:00||;True|2025-02-23T17:38:55.7219233+00:00||;True|2025-02-23T17:35:22.0443195+00:00||;True|2025-02-23T17:06:32.4122528+00:00||;True|2025-02-23T17:06:01.0260883+00:00||;True|2025-02-23T16:56:11.6236942+00:00||;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+</Project>

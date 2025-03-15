@@ -4,15 +4,18 @@
     --bright-light: #fffbf0;
     --bright: #f8edcb;
     --medium: #975A5E;
-    --deep: #574F35;
+    --deep: #6F6442;
     --deep-acc: #353D57;
     --dark: #1C1916;
-    --normal: 11pt;
+    --pitch: #100f0a;
+    --normal: 14pt;
     --large: 18pt;
     --header1: 32pt;
-    --header2: 26pt;
-    --small: 9pt;
-    --body-container-max-width: 100%;
+    --header2: 24pt;
+    --header3: 20pt;
+    --header4: 18pt;
+    --small: 10pt;
+    --body-container-max-width: 80ch;
 }
 
 html
@@ -20,8 +23,8 @@ html
     font-size: var(--normal);
     background-color: var(--dark);
     color: var(--text);
-    font-family: "Inter", sans-serif;
     font-weight: 400;
+    font-family: "Cardo", sans-serif;
 }
 
 a
@@ -31,6 +34,34 @@ a
 a:hover
 {
     color: var(--bright-light);
+}
+
+h1
+{
+    font-family: "Cardo", sans-serif;
+    color: var(--bright);
+    font-size: var(--header1);
+}
+
+h2
+{
+    font-family: "Cardo", sans-serif;
+    color: var(--bright);
+    font-size: var(--header2);
+}
+
+h3
+{
+    font-family: "Cardo", sans-serif;
+    color: var(--bright);
+    font-size: var(--header3);
+}
+
+h4
+{
+    font-family: "Cardo", sans-serif;
+    color: var(--bright);
+    font-size: var(--header4);
 }
 
 body
@@ -43,6 +74,7 @@ body
     animation-duration: 0.1s;
     animation-timing-function: ease-in-out;
     background-image: linear-gradient(rgba(0,0,0, 0.3), transparent);
+    font-optical-sizing: auto;
 }
 
 .loaded
@@ -52,8 +84,12 @@ body
 
 body > nav
 {
+    position: fixed;
     padding: 1.5em 1em 2em 1em;
     display: flex;
+    z-index: 1000;
+    width: calc(100% - 2em);
+    //background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(255, 255, 255, 0));
 }
 
 body > nav > * > a
@@ -93,11 +129,18 @@ body > .container
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 4em;
-    max-width: 48em;
-    animation-duration: 0.66s;
+    max-width: var(--body-container-max-width);
+    animation-duration: 0.5s;
     animation-timing-function: ease-in-out;
-    transition: all 0.66s ease;
+    transition: max-width 0.5s ease, transform 0.5s ease;
     transform: translateX(-20%);
+    display: flex;
+}
+
+body > .container > main
+{
+    padding-top: 8em;
+    width: 100%;
 }
 
 body > .onscreen
@@ -110,37 +153,59 @@ body > .offscreen-right
     transform: translateX(20%);
 }
 
-/*@media only screen and (min-width: 960px)
+p
 {
-    body .container
-    {
-        max-width: 640px;
-    }
+    text-align: justify;
+    margin: 1.5em 0 1.5em 0;
+    letter-spacing: -0.25px;
 }
 
- @media only screen and (min-width: 1280px)
+p > em
 {
-    body .container
-    {
-        max-width: 960px;
-    }
+    letter-spacing: 0.025ch;
 }
 
-@media only screen and (min-width: 1920px)
+.flex-column
 {
-    body .container
-    {
-        max-width: 1280px;
-    }
+    display: flex;
+    flex-direction:column;
 }
 
-@media only screen and (min-width: 2560px)
+.flex-row
 {
-    body .container
-    {
-        max-width: 1920px;
-    }
-}*/
+    display: flex;
+    flex-direction: row;
+}
+
+input[type=text]
+{
+    width: 34ch;
+}
+
+form
+{
+    width: 100%;
+}
+
+form > .flex-row
+{
+    margin: 0.5em 0 0.5em 0;
+}
+
+form > .flex-row > input, form > .flex-row > label
+{
+    margin: 0 0.25em 0.25em;
+}
+
+hr
+{
+    background-color: var(--deep);
+    border: solid 0px dimgrey;
+    height: 1px;
+    outline: 0;
+    margin: 2em auto 2em auto;
+    width: 80%;
+}
 
 .cardo
 {
@@ -169,7 +234,6 @@ body > .offscreen-right
 .article-list > article
 {
     margin: 1em 0em 4em 0em;
-    padding: 2em 3em 2em 3em;
     transform: translateX(0em);
     background-color:rgba(255, 255, 255, 0.0);
     animation-duration: 0.5s;
@@ -183,48 +247,106 @@ body > .offscreen-right
     background-color:rgba(255, 230, 200, 0.1);
 }
 
-.article-list > article > header > hr
+.article-list > article > header
 {
-    margin: 0.5em auto 0.5em auto;
-    border-bottom: 1px solid var(--deep);
-    width: 90%;
+
 }
 
-.article-list > article > header > a
+.article-list > article > header > img
 {
+    width: 80ch;
+}
+
+.article-list > article > header > h1
+{
+    margin: 1.25em;
+}
+
+.article-list > article > header > h1 > a
+{
+    font-weight: normal;
     font-size: var(--header2);
     text-decoration: none;
     color: var(--bright);
     animation-duration: 0.5s;
     animation-timing-function: ease-in-out;
     transition: all 0.25s ease;
+    display: inline-block;
 }
 
-.article-list article header a:hover
+.article-list > article > header > a:hover
 {
     color: var(--bright-light);
 }
 
-.article-list > article > .head-image
+.article-list > article > hr
 {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 2em 2em 0 2em;
+    border-bottom: 1px solid var(--deep);
+    width: 90%;
 }
 
-.article-list article content
+.article-list > article > content
 {
     display: block;
-    margin: 1em 0em 2em 0em;
+    margin: 0em auto 2em auto;
+    padding: 0em 3em 2em 3em;
+    width: 64ch;
 }
 
-.article-list article a.read
+.article-list > article > content > a.read
 {
+    padding: 4px 0 4px 0;
+    text-decoration: underline;
+    text-decoration-color: var(--deep-acc);
+    text-decoration-thickness: 2px;
     display: block;
-    width: 100%;
     text-align: right;
-    margin-right: 2em;
-    color: var(--bright);
-    font-weight: 400;
-    font-variant: small-caps;
+    animation-duration: 0.25s;
+    animation-timing-function: ease-in-out;
+    transition: all 0.25s ease;
+    text-decoration-style: wavy;
+    text-underline-offset: 4px;
+}
+
+/*.article-list > article > content > a.read:hover
+{
+    text-underline-offset: calc(0.25em + 4px);
+    transform: translateY(-0.25em);
+}*/
+
+.article-list > article > content > .metadata
+{
+    width: 64ch;
+    margin: 1em auto 0 auto;
+    color: var(--deep);
+}
+
+.article-list > article > content > .metadata > #author
+{
+
+}
+
+.blur-box
+{
+    position: fixed;
+    bottom: 0svh;
+    left: -50svw;
+    width: 200svw;
+    height: 5svh;
+    backdrop-filter: blur(0.1em);
+    display: block;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.4), rgba(255, 255, 255, 0));
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 60%);
+    filter: grayscale(0.66) sepia(0.25);
+}
+
+.blur-box-top
+{
+    position: fixed;
+    top: 0svh;
+    left: -50svw;
+    z-index: 500;
+    mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 60%);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(255, 255, 255, 0));
 }

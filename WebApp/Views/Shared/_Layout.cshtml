@@ -9,12 +9,10 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-
-
+    <link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     @RenderSection("PageHead", false)
 </head>
-<body>
+<body class="">
     <nav>
         <div class="left">
             <a href="~/">Home</a>
@@ -22,6 +20,7 @@
         </div>
         <div class="spacer"></div>
         <div class="right">
+            <a asp-controller="page" asp-action="index" asp-route-id="licence">Licence</a>
             <a asp-controller="page" asp-action="index" asp-route-id="about-me">About</a>
         </div>
     </nav>
@@ -35,5 +34,7 @@
     </footer>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+    <div class="blur-box"></div>
+    <div class="blur-box blur-box-top"></div>
 </body>
 </html>

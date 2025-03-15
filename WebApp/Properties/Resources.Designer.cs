@@ -61,7 +61,7 @@ namespace WebApp.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to http://directus:8055/.
+        ///   Looks up a localized string similar to https://blog-directus-ot86s.ondigitalocean.app/.
         /// </summary>
         internal static string Directus {
             get {
@@ -70,7 +70,7 @@ namespace WebApp.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to http://localhost:8055/.
+        ///   Looks up a localized string similar to https://blog-directus-ot86s.ondigitalocean.app/.
         /// </summary>
         internal static string DirectusPublic {
             get {
@@ -79,7 +79,7 @@ namespace WebApp.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to p26PKNIdbSQKxPhvMzCcDgG3mQCp5zB2.
+        ///   Looks up a localized string similar to fB0c3CaNvVWhicR-kgOgFYMAPpooUUj7.
         /// </summary>
         internal static string Token {
             get {

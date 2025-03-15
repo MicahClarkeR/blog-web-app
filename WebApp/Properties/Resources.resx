@@ -118,12 +118,12 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Directus" xml:space="preserve">
-    <value>http://directus:8055/</value>
+    <value>https://blog-directus-ot86s.ondigitalocean.app/</value>
   </data>
   <data name="Token" xml:space="preserve">
-    <value>p26PKNIdbSQKxPhvMzCcDgG3mQCp5zB2</value>
+    <value>fB0c3CaNvVWhicR-kgOgFYMAPpooUUj7</value>
   </data>
   <data name="DirectusPublic" xml:space="preserve">
-    <value>http://localhost:8055/</value>
+    <value>https://blog-directus-ot86s.ondigitalocean.app/</value>
   </data>
 </root>

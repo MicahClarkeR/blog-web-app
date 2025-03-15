@@ -1,4 +1,28 @@
-﻿article
+﻿main
+{
+    max-width: var(--body-container-max-width);
+}
+
+body
+{
+}
+
+/*body > nav
+{
+    transform: translateY(-5em);
+    height: 10em;
+    animation-duration: 0.25s;
+    animation-timing-function: ease-in-out;
+    transition: all 0.25s ease;
+}
+
+body > nav:hover
+{
+    transform: translateY(0);
+    height: 5em;
+}*/
+
+article
 {
     padding: 2em;
 }
@@ -8,15 +32,17 @@ article > header > h1
     color: var(--bright);
     font-size: var(--header1);
     display: block;
+    font-weight: normal;
+    text-wrap: balance;
 }
 
 article > header > img
 {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
     max-height: 640px;
     object-fit: contain;
+    width: calc(100% + 4em);
+    margin: 2em 0em 0em -2em;
 }
 
 article > hr
@@ -40,6 +66,13 @@ article > content > p
     width: 100%;
 }
 
+article > content > hr
+{
+    margin: 4em auto 4em auto;
+    width: 80%;
+    opacity: 0.5;
+}
+
 article > content > p > img, article > content > img
 { 
     display: block;
@@ -47,6 +80,34 @@ article > content > p > img, article > content > img
     margin-left: auto;
     margin-right: auto;
     max-width: 100%;
+}
+
+article > content > blockquote
+{
+    margin: 4em 2.5em 4em 1em;
+    border-left: 0.5em solid var(--deep);
+    padding: 2em 2em 3em 2em;
+    font-family: "Cardo", sans-serif;
+    text-align: justify;
+    background: var(--pitch);
+}
+
+
+article > content > blockquote > cite::before, article > content > cite::before
+{
+    content: "–";
+    padding-right: 0.5em;
+}
+
+article > content > blockquote > cite, article > content > cite
+{
+    margin-top: 2em;
+    display: block;
+    font-family: "Cardo", sans-serif;
+    font-size: var(--small);
+    font-variant-caps: all-small-caps;
+    width: 100%;
+    text-align: center;
 }
 
 article > .back
@@ -64,7 +125,7 @@ article > .back:hover
     opacity: 1.0;
 }
 
-article > #categories > span > small > a 
+article > #metadata > span, article > #metadata > span > small > a, article > #metadata > span#header-credit > a
 {
     font-style: italic;
     text-decoration: none;
@@ -74,7 +135,157 @@ article > #categories > span > small > a
     transition: all 0.25s ease;
 }
 
-article > #categories > span > small > a:hover
+article > #metadata > span > small > a:hover
 {
     color: var(--bright);
+}
+
+article > #metadata > span#header-credit > a
+{
+
+}
+
+.read-link::before
+{
+    /*position: absolute;
+    content: "";
+    width: 1em;
+    height: 1em;
+    background-image: url("https://blog-directus-ot86s.ondigitalocean.app/assets/68849628-e251-4faa-876a-daaebe1fa000");
+    background-size: 1em;*/
+}
+
+.read-link::before
+{
+    background-image: url('data:image/svg+xml,<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns%23" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns%23" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" version="1.0" width="24" height="24" id="svg2"><metadata id="metadata31"><rdf:RDF><cc:Work rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/><dc:title/></cc:Work></rdf:RDF></metadata><defs id="defs4"/><path d="m 2.2526,5.7943 l 0,12.9957 c 3.249,-2.03 6.498,-2.03 9.7474,0 c 3.249,-2.03 6.498,-2.03 9.747,0 l 0,-12.9957 C 18.498,3.7637 15.249,3.7637 12,5.7943 c -3.2793,-1.9405 -6.8503,-1.7762 -9.7474,0 z m 8.1224,1.726 l 0,8.0207 C 8.3081,14.851 6.4129,14.674 4.537,15.389 l 0,-8.2239 c 2.287,-1.0085 4.48,-0.5243 5.838,0.3552 z m 9.088,-0.3552 l 0,8.2239 c -2.297,-0.718 -4.023,-0.457 -5.839,0.152 l 0,-8.0207 c 1.866,-1.0392 3.67,-1.3169 5.839,-0.3552 z" id="rect3027" style="fill:white;fill-opacity:1;stroke:none"/></svg>');
+    background-size: 1em;
+    background-position: -1em 0em;
+    content: "";
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    position: relative;
+    top: 0.25em;
+    left: -0.25em;
+}
+
+.read-link::before:hover
+{
+    color: var(--deep);
+}
+
+.read-link
+{
+    display:inline-block;
+    padding-left: 2em;
+    font-style: italic;
+    font-size: var(--small);
+    animation-duration: 0.25s;
+    animation-timing-function: ease-in-out;
+    transition: all 0.25s ease;
+    text-decoration: none;
+}
+
+.read-link:hover
+{
+    transform: translateX(0.5em);
+}
+
+.source-inspect-container
+{
+    max-width: calc(var(--body-container-max-width) + 36em) !important;
+}
+
+.body-no-transition
+{
+    /*transition: none !important;
+    animation-duration: 0 !important;*/
+}
+
+.source-inspector-viewer
+{
+    max-width: 36em;
+    width: 0;
+    height: 50em;
+    animation-duration: 10.0s !important;
+    transition: transform 0.5s ease-in-out, opacity .5s ease-in-out, width 0.01s linear;
+    transform:translateY(8em);
+    opacity: 0;
+    box-shadow: rgba(0,0,0,0.2) 0.25em 0.25em 0.5em;
+    background-color: var(--dark);
+    margin-bottom: 4em;
+}
+
+.source-inspector-viewer > a
+{
+    display: inline-block;
+    width: 100%;
+    font-size: var(--small);
+    text-align: center;
+    padding: 1em 0 1em 0;
+    text-decoration: none;
+    font-family: "Cardo", sans-serif;
+}
+
+.source-inspector-viewer > button
+{
+    font-size: 16px;
+    content: "X";
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+    border: none;
+    outline: none;
+    background-color: rgba(0,0,0,0);
+    color: white;
+    float: right;
+}
+
+.source-inspector-viewer > button:hover
+{
+    cursor: pointer;
+    background-color: var(--pitch);
+}
+
+.source-inspector-viewer > .source-inspector-close
+{
+}
+
+.source-inspector-viewer > .source-inspector-close:hover
+{
+}
+
+.source-inspector-viewer > iframe
+{
+    width: 100%;
+    height: 45em;
+    outline: 0;
+    border: 0;
+}
+
+.source-inspector-maximise
+{
+    margin-top: -4px;
+}
+
+.source-inspector-viewer-maximised
+{
+    position: fixed;
+    top: 8.5em;
+    left: 12em;
+    width: calc(100svw - 24em) !important;
+    max-width: 100svw;
+    height: calc(100svh - 12em);
+}
+
+.source-inspector-viewer-maximised > iframe
+{
+    height: calc(100% - 6em);
+}
+
+.source-inspector-loaded
+{
+    transform:translateY(0em);
+    opacity: 1;
+    width: 36em;
 }

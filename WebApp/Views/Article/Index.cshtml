@@ -8,7 +8,7 @@
         BackLink = "/article?page=" + Model.Page + "&count=" + Model.Count
     };
 }
-<div style="margin-top: 6em"></div>
+<div style="padding-top: 10em"></div>
 @{
     await Html.RenderPartialAsync("_ArticleList", articleListModel);
 }
